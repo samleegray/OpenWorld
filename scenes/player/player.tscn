@@ -14,6 +14,8 @@ script = ExtResource("1_eqeei")
 zoom = Vector2(2, 2)
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_h6j7l")]
+max_speed = 100
+acceleration = 10.0
 
 [node name="Visuals" type="Node2D" parent="."]
 
