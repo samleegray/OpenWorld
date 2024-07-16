@@ -2,7 +2,6 @@ extends Node
 
 @export var max_speed: int = 40
 @export var acceleration: float = 5
-@export var max_dash_speed = 8000
 
 var velocity = Vector2.ZERO
 
@@ -22,11 +21,6 @@ func accelerate_to_player():
 
 func accelerate_in_direction(direction: Vector2):
 	var desired_velocity = direction * max_speed
-	velocity = velocity.lerp(desired_velocity, (1 - exp(-acceleration * get_process_delta_time())))
-
-
-func dash_in_direction(direction: Vector2):
-	var desired_velocity = direction * max_dash_speed
 	velocity = velocity.lerp(desired_velocity, (1 - exp(-acceleration * get_process_delta_time())))
 
 
