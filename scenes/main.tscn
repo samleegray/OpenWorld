@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=4 uid="uid://c8d1ai5hjhej0"]
+[gd_scene load_steps=6 format=4 uid="uid://c8d1ai5hjhej0"]
 
 [ext_resource type="TileSet" uid="uid://ba6pwjvhtg021" path="res://scenes/tilesets/main.tres" id="1_8fttq"]
 [ext_resource type="PackedScene" uid="uid://duefegrhuc0jd" path="res://scenes/player/player.tscn" id="1_k0nw5"]
+[ext_resource type="PackedScene" uid="uid://2s3wnhm0c2ji" path="res://scenes/component/warp.tscn" id="3_0smp6"]
+[ext_resource type="PackedScene" uid="uid://c78gymj8dpunr" path="res://scenes/maps/castle.tscn" id="4_g2hll"]
+[ext_resource type="Script" path="res://scripts/animated_label.gd" id="5_ix7lo"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -12,7 +15,7 @@ tile_set = ExtResource("1_8fttq")
 
 [node name="Buildings" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAJAAIAAAAAAAwAAAAJAAMAAAAAAA0AAAAKAAIAAAABAAwAAAAKAAMAAAABAA0AAAALAAIAAAACAAwAAAALAAMAAAACAA0AAAA=")
+tile_map_data = PackedByteArray("AAAJAAIAAAAAAAwAAAAJAAMAAAAAAA0AAAAKAAIAAAABAAwAAAAKAAMAAAAJAAsAAAALAAIAAAACAAwAAAALAAMAAAACAA0AAAA=")
 tile_set = ExtResource("1_8fttq")
 
 [node name="Player" parent="." instance=ExtResource("1_k0nw5")]
@@ -20,3 +23,44 @@ y_sort_enabled = true
 position = Vector2(114, 60)
 collision_layer = 8
 collision_mask = 8
+
+[node name="Warp" parent="." instance=ExtResource("3_0smp6")]
+position = Vector2(171, 58)
+collision_layer = 0
+collision_mask = 8
+map_scene = ExtResource("4_g2hll")
+
+[node name="Dialog" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="Dialog"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Panel" type="Panel" parent="Dialog/PanelContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="AnimatedLabel" type="Label" parent="Dialog/PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Some text."
+autowrap_mode = 2
+script = ExtResource("5_ix7lo")
+
+[node name="CharacterTimer" type="Timer" parent="Dialog"]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Dialog/CharacterTimer" to="Dialog/PanelContainer/Panel/AnimatedLabel" method="_on_character_timer_timeout"]
