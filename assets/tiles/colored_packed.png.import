@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cba7hfkg16c1w"
-path="res://.godot/imported/rocky_road.png-b7a8f87a1b0be12d1961efa9339083dc.ctex"
+uid="uid://ma7soq8donhp"
+path="res://.godot/imported/colored_packed.png-b425cc26243ce73c443375d19e01119e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/rocky_road.png"
-dest_files=["res://.godot/imported/rocky_road.png-b7a8f87a1b0be12d1961efa9339083dc.ctex"]
+source_file="res://assets/tiles/colored_packed.png"
+dest_files=["res://.godot/imported/colored_packed.png-b425cc26243ce73c443375d19e01119e.ctex"]
 
 [params]
 

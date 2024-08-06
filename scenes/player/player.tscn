@@ -11,7 +11,7 @@ radius = 7.0
 script = ExtResource("1_eqeei")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 position_smoothing_speed = 10.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_h6j7l")]
