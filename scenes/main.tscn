@@ -1207,7 +1207,8 @@ texture = ExtResource("1_t30ye")
 48:21/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_pu7jl"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Dirt"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -1221,3 +1222,5 @@ tile_set = SubResource("TileSet_pu7jl")
 
 [node name="Player" parent="." instance=ExtResource("1_k0nw5")]
 position = Vector2(114, 60)
+collision_layer = 8
+collision_mask = 8
