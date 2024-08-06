@@ -44,23 +44,29 @@ grow_vertical = 0
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="AnimatedLabel" type="Label" parent="Dialog/PanelContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Dialog/PanelContainer/Panel"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 11.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="AnimatedLabel" type="Label" parent="Dialog/PanelContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Some text."
 autowrap_mode = 2
 script = ExtResource("5_ix7lo")
 
 [node name="CharacterTimer" type="Timer" parent="Dialog"]
-wait_time = 0.05
+wait_time = 0.1
 autostart = true
 
-[connection signal="timeout" from="Dialog/CharacterTimer" to="Dialog/PanelContainer/Panel/AnimatedLabel" method="_on_character_timer_timeout"]
+[connection signal="timeout" from="Dialog/CharacterTimer" to="Dialog/PanelContainer/Panel/MarginContainer/AnimatedLabel" method="_on_character_timer_timeout"]
